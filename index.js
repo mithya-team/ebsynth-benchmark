@@ -4,12 +4,10 @@ const fs = require('fs/promises');
 const Bottleneck = require('bottleneck');
 const cliProgress = require('cli-progress');
 const { chunk } = require('lodash');
+const { get_ebsynth_binary_path } = require('./utils');
 
-const EBSYNTH_BINARY = 'ebsynth_Linux_Cuda';
-const maxConcurrent = 5;
+const maxConcurrent = 2;
 const tasksInOneCommand = 1;
-
-const ebsynth_path = path.join(__dirname, 'bin', EBSYNTH_BINARY);
 const style = path.join(__dirname, 'SampleProject', 'key', 'frame-0.jpg');
 const source_frame = path.join(__dirname, 'SampleProject', 'data', 'frame-0.jpg');
 const input_frames_dir = path.join(__dirname, 'SampleProject', 'data');
@@ -28,6 +26,7 @@ const run = async (command) => new Promise((resolve, reject) => {
 });
 
 const run_ebsynth = async () => {
+    const ebsynth_path = await get_ebsynth_binary_path();
     const images = await fs.readdir(input_frames_dir);
 
     const limiter = new Bottleneck({
