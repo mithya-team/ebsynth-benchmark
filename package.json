@@ -1,0 +1,19 @@
+{
+  "name": "ebsynth-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint . --ext .js",
+    "lint-fix": "./node_modules/.bin/eslint . --ext .js --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bottleneck": "^2.19.5",
+    "cli-progress": "^3.11.2",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {}
+}
