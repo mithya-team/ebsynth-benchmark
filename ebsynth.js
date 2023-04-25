@@ -45,7 +45,7 @@ const getEbsynthCommands = (videoDir, keyFrames, totalFrames) => {
       for (let rawFrameNumber = prevKeyFrameNumber + 1; rawFrameNumber < nextKeyFrameNumber; rawFrameNumber++) {
 
         const command = getEbsynthCommand({
-          style: path.join(videoDir, 'key_frames', `${pad(keyFrameNumber)}.png`),
+          style: path.join(videoDir, 'extracted_sprites', `${pad(keyFrameNumber)}.png`),
           source:  path.join(videoDir, 'extract', `${pad(keyFrameNumber)}.png`),
           target: path.join(videoDir, 'extract', `${pad(rawFrameNumber)}.png`),
           output:  path.join(outputFolder, `${pad(rawFrameNumber)}.png`)
