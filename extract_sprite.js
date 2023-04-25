@@ -14,7 +14,7 @@ const main = async () => {
     let frames = await fs.promises.readdir(join(Video, 'counted_frames'));
     frames = frames.sort();
 
-    const spriteImage = join(Video, 'sprite.png');
+    const spriteImage = join(Video, 'output_sprite.png');
 
     const outputFolder = join(Video, 'extracted_sprites');
 
